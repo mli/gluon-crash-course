@@ -1,21 +1,27 @@
 # A 60-min crash course on Gluon
 
+This is a staging repo, and will be merged to MXNet once it is ready.
 
+Every .md file in this repo may be run directly in Jupyter notebook when you use the `notedown` plugin. Keeping the format in markdown instead of .ipynb makes it easier to collaborate and review on GitHub.
 
+## Prerequisites
 
-Stage repo, will merge to mxnet once ready.
+You should already have MXNet 1.1.0 or greater installed in a Python virtual environment. Start this environment and continue with Step 1.
 
-Every md file is a jupyter notebook, to edit it directly in jupyter, one need to
-install notebook
+### Step 1: Install Jupyter notebook with notedown.
+
+This tarball is provided to do this for you.
 
 ```
 pip install https://github.com/mli/notedown/tarball/master
 ```
 
-and start jupyter with the plugin
+**Note**: If you run into a problem with this installation at the  `pandoc-attributes` step, run `pip uninstall pypandoc`, then try the installation tarball again.
+
+### Step 2: Start Jupyter with notedown
 
 ```
 jupyter notebook --NotebookApp.contents_manager_class='notedown.NotedownContentsManager'
 ```
 
-Before committing, please make sure all outputs are cleaned.
+Before committing updates to these notebooks, please make sure all outputs are cleared.
