@@ -17,19 +17,6 @@ layer = nn.Dense(2)
 layer
 ```
 
-```{.json .output n=31}
-[
- {
-  "data": {
-   "text/plain": "Dense(None -> 2, linear)"
-  },
-  "execution_count": 31,
-  "metadata": {},
-  "output_type": "execute_result"
- }
-]
-```
-
 Then initialize its weights with the default initialization method, which draws random values uniformly from $[-0.7, -0.7]$.
 <!-- is the 0.7 important to mention? Now I want to know why it is 0.7 and not .2 or whatever -->
 
@@ -42,19 +29,6 @@ We create a $(3,4)$ shape random input `x` and feed into the layer to compute th
 ```{.python .input  n=34}
 x = nd.random.uniform(-1,1,(10,10))
 layer(x)
-```
-
-```{.json .output n=34}
-[
- {
-  "data": {
-   "text/plain": "\n[[-0.07276657 -0.03781234]\n [-0.06322306 -0.11527439]\n [-0.00478919 -0.02125373]\n [-0.07724749  0.03136468]\n [-0.02502255 -0.13839386]\n [-0.13829726 -0.00152191]\n [ 0.02468701  0.07449903]\n [ 0.02729581  0.04158062]\n [-0.10344928  0.08201595]\n [-0.02810002  0.09093378]]\n<NDArray 10x2 @cpu(0)>"
-  },
-  "execution_count": 34,
-  "metadata": {},
-  "output_type": "execute_result"
- }
-]
 ```
 
 As can be seen, we got a $(10,2)$ shape output. Note that we didn't specify the input size of `layer` before (though we can specify it with the argument `in_units=10` here), the system will automatically infer it during the first time we feed in data, create and initialize the weights. So we can access the weight after the first forward pass:
