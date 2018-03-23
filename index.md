@@ -13,8 +13,15 @@ This course assumes that readers have basic knowledge about machine learning and
 
 For a high-level introduction to neural networks, you might find [neuralnetworksanddeeplearning.com](http://neuralnetworksanddeeplearning.com/) helpful.
 
+Andrew Ng's [Coursera class on Neural Networks and Deep Learning](https://www.coursera.org/learn/neural-networks-deep-learning) is another good resource for acquiring the basic neural networking knowledge you will need to benefit from this crash course.
+
 Otherwise, please refer to these
-[excellent hands-on tutorials](http://gluon.mxnet.io/) to learn deep learning from scratch. Some of the material might stray a little to far into advanced mathematics, but don't be concerned. You can still learn Gluon without a PhD.
+[excellent hands-on tutorials](http://gluon.mxnet.io/) to learn deep learning from scratch.
+
+Some of the material might stray a little too far into advanced mathematics, but don't be concerned. You can still learn to use neural networks and Gluon without a PhD.
+
+## Setup
+For instructions on running the Jupyter notebooks included with this course, please refer to the [README](README.md). Otherwise, you can simply read through this course's material.
 
 
 ## Contents of this Course
@@ -47,7 +54,7 @@ To get help or ask questions, please use the [MXNet forum](https://discuss.mxnet
 
 
 ## Contributions
-To contribute or file bugs, please refer to the [GitHub repo](https://github.com/mli/gluon-crash-course).
+To contribute or report bugs, please refer to the [GitHub repo](https://github.com/mli/gluon-crash-course).
 
 
 ## Acknowledgments:
