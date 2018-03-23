@@ -1,6 +1,6 @@
 # Predict with a pre-trained model
 
-A saved model can be used in multiple places, such as continue training, fine-tuning and prediction. This tutorial we will discuss how to predict new examples with the model trained before.
+A saved model can be used in multiple places, such as to continue training, to fine tune the model, and for prediction. In this tutorial we will discuss how to predict new examples using a pretrained model.
 
 ```{.python .input  n=1}
 from mxnet import nd
@@ -9,7 +9,7 @@ from mxnet.gluon import nn
 import matplotlib.pyplot as plt
 ```
 
-We copy the model definition here. (Note, there is an advanced way to save the network definition and load it back without redefining the network, refer [xx] for more details).
+To start, we will copy a simple model's definition.
 
 ```{.python .input  n=2}
 net = nn.Sequential()
@@ -19,17 +19,19 @@ with net.name_scope():
         nn.MaxPool2D(pool_size=2, strides=2),
         nn.Conv2D(channels=16, kernel_size=3, activation='relu'),
         nn.MaxPool2D(pool_size=2, strides=2),
-        nn.Flatten(),        
+        nn.Flatten(),
         nn.Dense(120, activation="relu"),
         nn.Dense(84, activation="relu"),
         nn.Dense(10)
     )
 ```
 
+**Note**: There is an advanced way to save the network definition and load it back without redefining the network. Refer to [xx] for more details.
+
 In the last section, we saved all parameters into a file, now let load it back
 
 ```{.python .input  n=3}
-net.load_params('net.params', ctx=cpu()) 
+net.load_params('net.params', ctx=cpu())
 ```
 
 ## Predict
@@ -81,7 +83,7 @@ The LeNet trained on FashionMNIST is a good example to start with, but too simpl
 from mxnet.gluon.model_zoo import vision as models
 from mxnet.gluon.utils import download
 from mxnet import image
- 
+
 net = models.resnet50_v2(pretrained=True)
 ```
 
@@ -90,7 +92,7 @@ We also download and load the text labels for each class.
 ```{.python .input  n=8}
 url = 'http://data.mxnet.io/models/imagenet/synset.txt'
 fname = download(url)
-with open(fname, 'r') as f:    
+with open(fname, 'r') as f:
     text_labels = [' '.join(l.split()[1:]) for l in f]
 ```
 
@@ -111,13 +113,13 @@ plt.imshow(x.asnumpy())
 plt.show()
 ```
 
-Now you may know it is a golden retriever (You can also infer it from the image URL). 
+Now you may know it is a golden retriever (You can also infer it from the image URL).
 
 The futher data transformation is similar to FashionMNIST except that we subtract the RGB means and divide by the corresponding variances to normalize each color channel.
 
 ```{.python .input  n=11}
 def transform(data):
-    data = data.transpose((2,0,1)).expand_dims(axis=0)    
+    data = data.transpose((2,0,1)).expand_dims(axis=0)
     rgb_mean = nd.array([0.485, 0.456, 0.406]).reshape((1,3,1,1))
     rgb_std = nd.array([0.229, 0.224, 0.225]).reshape((1,3,1,1))
     return (data.astype('float32') / 255 - rgb_mean) / rgb_std
