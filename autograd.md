@@ -1,12 +1,12 @@
 # Automatic differentiation with `autograd`
 
-We train models to get better and better as a function of experience. Usually, getting better means minimizing a loss function. To achieve this goal, we often iteratively compute the gradient of the loss with respect to weights and then update the weights accordingly. While the gradient calculations are straightforward through chain rule, for complex models, working it out by hand can be a pain.
+We train models to get better and better as a function of experience. Usually, getting better means minimizing a loss function. To achieve this goal, we often iteratively compute the gradient of the loss with respect to weights and then update the weights accordingly. While the gradient calculations are straightforward through a chain rule, for complex models, working it out by hand can be a pain.
 
-Before diving deep into the model training, let's go through how MXNet’s autograd package expedites this work by automatically calculating derivatives. 
+Before diving deep into the model training, let's go through how MXNet’s `autograd` package expedites this work by automatically calculating derivatives.
 
 ## Basic usage
 
-Let's first import the `autograd`
+Let's first import the `autograd` package.
 
 ```{.python .input}
 from mxnet import nd
@@ -26,30 +26,32 @@ Once we compute the gradient of $f(x)$ with respect to $x$, we’ll need a place
 x.attach_grad()
 ```
 
-Now we’re going to define the function $y=f(x)$. To let MXNet store $y$ so that we can compute gradients later, we need to put the definition inside a `autograd.record()` scope.
+Now we’re going to define the function $y=f(x)$. To let MXNet store $y$, so that we can compute gradients later, we need to put the definition inside a `autograd.record()` scope.
 
 ```{.python .input  n=7}
 with autograd.record():
     y = 2 * x * x
 ```
 
-Let’s backprop by calling `y.backward()`. When $y$ has more than one entry, `y.backward()` is equivalent to `y.sum().backward()`.
+Let’s invoke back propagation (backprop) by calling `y.backward()`. When $y$ has more than one entry, `y.backward()` is equivalent to `y.sum().backward()`.
+<!-- I'm not sure what this second part really means. I don't have enough context. TMI?-->
 
 ```{.python .input  n=8}
 y.backward()
 ```
 
-Now, let’s see if this is the expected output. Note that $y=2x^2$ and $\frac{dy}{dx} = 4x$, which should be `[[4, 8],[12, 16]]`. Let check the automatically computed results
+Now, let’s see if this is the expected output. Note that $y=2x^2$ and $\frac{dy}{dx} = 4x$, which should be `[[4, 8],[12, 16]]`. Let's check the automatically computed results:
 
 ```{.python .input  n=9}
 x.grad
 ```
 
-## Use Python control flows
+## Using Python control flows
 
-Sometimes we want to write dynamic programs, namely the execution depends on some real time values. MXNet will record the execution trace and compute the gradient as well.
+Sometimes we want to write dynamic programs where the execution depends on some real-time values. MXNet will record the execution trace and compute the gradient as well.
 
-Consider the following function `f`, it doubles the inputs until it's norm reaches to 1000. And then select one element depends on the sum of its elements.
+Consider the following function `f`: it doubles the inputs until it's `norm` reaches 1000. Then it selects one element depending on the sum of its elements.
+<!-- I wonder if there could be another less "mathy" demo of this -->
 
 ```{.python .input}
 def f(a):
@@ -63,7 +65,7 @@ def f(a):
     return c
 ```
 
-We record the trace and feed in a random value
+We record the trace and feed in a random value:
 
 ```{.python .input}
 a = nd.random.uniform(shape=2)
@@ -73,7 +75,7 @@ with autograd.record():
 c.backward()
 ```
 
-We know that `b` is a linear function of `a`, and `c` is chosen from `b`. Then the gradient with respect to `a` be will either `[c/a[0], 0]` or `[0, c/a[1]`, depends which element from `b` we picked. Let's find the results:
+We know that `b` is a linear function of `a`, and `c` is chosen from `b`. Then the gradient with respect to `a` be will either `[c/a[0], 0]` or `[0, c/a[1]`, depending on which element from `b` we picked. Let's find the results:
 
 ```{.python .input}
 [a.grad, c/a]
