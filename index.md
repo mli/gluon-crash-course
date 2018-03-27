@@ -19,7 +19,7 @@ You can also refer to these
 Some of the material might stray a little too far into advanced mathematics, but don't be concerned. You can still learn to use neural networks and Gluon without a PhD.
 
 ## Setup
-For instructions on running the Jupyter notebooks included with this course, please refer to the [README](README.md). Otherwise, you can simply read through this course's material.
+For instructions on running the Jupyter notebooks included with this course, please refer to the [README](https://github.com/mli/gluon-crash-course/blob/master/README.md). Otherwise, you can simply read through this course's material.
 
 
 ## Contents of this Course
