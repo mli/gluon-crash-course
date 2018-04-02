@@ -81,7 +81,7 @@ plt.show()
 ## Predict with models from Gluon model zoo
 
 
-The LeNet trained on FashionMNIST is a good example to start with, but too simple to predict real-life pictures.  Instead of training large-scale model from scratch, [Gluon model zoo](https://mxnet.incubator.apache.org/api/python/gluon/model_zoo.html) provides multiple pre-trained powerful models. For example, we download and load a pre-trained ResNet-50 V2 model on the ImageNet dataset.
+The LeNet trained on FashionMNIST is a good example to start with, but too simple to predict real-life pictures. Instead of training large-scale model from scratch, [Gluon model zoo](https://mxnet.incubator.apache.org/api/python/gluon/model_zoo.html) provides multiple pre-trained powerful models. For example, we can download and load a pre-trained ResNet-50 V2 model on the ImageNet dataset.
 
 ```{.python .input  n=7}
 from mxnet.gluon.model_zoo import vision as models
@@ -109,8 +109,8 @@ x = image.imread(fname)
 ```
 
 Following the conventional way of preprocessing ImageNet data:
-1. resize the short edge into 256 pixes, 
-2. then perform a center crop to obtain a 224-by-224 image 
+1. resize the short edge into 256 pixes,
+2. then perform a center crop to obtain a 224-by-224 image
 The following code uses the image processing functions provided in the MXNet [image module](https://mxnet.incubator.apache.org/api/python/image/image.html).
 
 ```{.python .input  n=10}
