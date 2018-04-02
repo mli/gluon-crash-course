@@ -2,6 +2,10 @@
 
 A saved model can be used in multiple places, such as to continue training, to fine tune the model, and for prediction. In this tutorial we will discuss how to predict new examples using a pretrained model.
 
+## Prerequisites
+
+Please run the [previous tutorial](train.md) to train the network and save its parameters to file. You will need this file to run the following steps.
+
 ```{.python .input  n=1}
 from mxnet import nd
 from mxnet import gluon, cpu
@@ -28,7 +32,7 @@ with net.name_scope():
 
 **Note**: There is an advanced way to save the network definition and load it back without redefining the network. Refer to [xx] for more details.
 
-In the last section, we saved all parameters into a file, now let load it back
+In the last section, we saved all parameters into a file, now let's load it back.
 
 ```{.python .input  n=3}
 net.load_params('net.params', ctx=cpu())
@@ -36,7 +40,7 @@ net.load_params('net.params', ctx=cpu())
 
 ## Predict
 
-Remember the data transformation we did for training, now we need the same transformation for predicting, except that we assume the data is a single image instead of a batch of images.
+Remember the data transformation we did for training? Now we need the same transformation for predicting, except that we assume the data is a single image instead of a batch of images.
 
 ```{.python .input  n=4}
 def transform(data):
@@ -44,7 +48,7 @@ def transform(data):
     return data.transpose((2,0,1)).expand_dims(axis=0).astype('float32')/255
 ```
 
-Now let's try to predict the first 6 images in the validation dataset and saves the predictions into `preds`.
+Now let's try to predict the first six images in the validation dataset and store the predictions into `preds`.
 
 ```{.python .input  n=5}
 mnist_valid = gluon.data.vision.FashionMNIST(train=False)
@@ -104,7 +108,10 @@ fname = download(url)
 x = image.imread(fname)
 ```
 
-Following the conventional way of preprocessing ImageNet data, we first resize the short edge into 256 pixes and then perform a center crop to obtain a 224-by-224 image. We used the image processing functions provided in the [image module](https://mxnet.incubator.apache.org/api/python/image/image.html).
+Following the conventional way of preprocessing ImageNet data:
+1. resize the short edge into 256 pixes, 
+2. then perform a center crop to obtain a 224-by-224 image 
+The following code uses the image processing functions provided in the MXNet [image module](https://mxnet.incubator.apache.org/api/python/image/image.html).
 
 ```{.python .input  n=10}
 x = image.resize_short(x, 256)
@@ -125,7 +132,7 @@ def transform(data):
     return (data.astype('float32') / 255 - rgb_mean) / rgb_std
 ```
 
-Now we can recognize the object in the image now. We perform an additional softmax to the output to obtain probability scores. And then print the top-5 recognized objects.
+Now we can recognize the object in the image now. We perform an additional softmax on the output to obtain probability scores. And then print the top-5 recognized objects.
 
 ```{.python .input  n=12}
 prob = net(transform(x)).softmax()
@@ -136,4 +143,4 @@ for i in idx:
         prob[0,i].asscalar(), text_labels[i]))
 ```
 
-As can be seen, the model is fairly confident the image contains a goden retriever.
+As can be seen, the model is fairly confident the image contains a golden retriever.
