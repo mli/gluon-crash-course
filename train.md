@@ -31,7 +31,7 @@ Next, we visualize the first six examples.
 
 ```{.python .input  n=3}
 text_labels = [
-    't-shirt', 'trouser', 'pullover', 'dress,', 'coat',
+    't-shirt', 'trouser', 'pullover', 'dress', 'coat',
     'sandal', 'shirt', 'sneaker', 'bag', 'ankle boot'
 ]
 X, y = mnist_train[0:6]
@@ -110,7 +110,7 @@ Besides the neural network, we need to define the loss function and optimization
 softmax_cross_entropy = gluon.loss.SoftmaxCrossEntropyLoss()
 ```
 
-The optimization method we picked is the standard stochastic gradient descent with constant learning rate of 0.1.
+The optimization method we pick is the standard stochastic gradient descent with constant learning rate of 0.1.
 
 ```{.python .input  n=10}
 trainer = gluon.Trainer(net.collect_params(),
@@ -145,7 +145,7 @@ for epoch in range(10):
         loss.backward()
         # update parameters
         trainer.step(batch_size)
-        # calculate traing metrics
+        # calculate training metrics
         train_loss += loss.mean().asscalar()
         train_acc += acc(output, label)
 

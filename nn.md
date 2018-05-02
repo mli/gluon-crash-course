@@ -30,7 +30,7 @@ x = nd.random.uniform(-1,1,(3,4))
 layer(x)
 ```
 
-As can be seen, we the layer's input limit of 2 produced a $(3,2)$ shape output from our $(3,4)$ input. Note that we didn't specify the input size of `layer` before (though we can specify it with the argument `in_units=4` here), the system will automatically infer it during the first time we feed in data, create and initialize the weights. So we can access the weight after the first forward pass:
+As can be seen, the layer's input limit of 2 produced a $(3,2)$ shape output from our $(3,4)$ input. Note that we didn't specify the input size of `layer` before (though we can specify it with the argument `in_units=4` here), the system will automatically infer it during the first time we feed in data, create and initialize the weights. So we can access the weight after the first forward pass:
 
 ```{.python .input  n=35}
 layer.weight.data()
@@ -76,7 +76,7 @@ The usage of `nn.Sequential` is similar to `nn.Dense`. In fact, both of them are
 
 ```{.python .input}
 net.initialize()
-# Input shape is (batch_size, RGB_channels, height, width)
+# Input shape is (RGB_channels, batch_size, height, width)
 x = nd.random.uniform(shape=(4,1,28,28))
 y = net(x)
 y.shape
