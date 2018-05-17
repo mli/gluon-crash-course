@@ -1,12 +1,13 @@
 # A 60-minute Gluon Crash Course
 
-This crash course aims to provide a quick overview of how to use Gluon, the imperative interface of MXNet.
+Gluon is an imperative API for MXNet that’s flexible and easy-to-use, and this course aims to give you a quick overview of the core Gluon concepts so you'll be ready to use it in your next projects.
 
-When you finish this Gluon crash course, you will have accomplished the following goals:
+Once you've completed the course, you should be able to:
 
-1. Understanding the basic usage of the major components of Gluon
-2. How to train a a basic neural network to predict images
+1. Understand how to use the major components of Gluon
+2. Define and train a basic neural network to classify images
 
+We also provide a supplementary [YouTube video playlist](https://www.youtube.com/playlist?list=PLkEvNnRk8uVmVKRDgznk3o3LxmjFRaW7s) that walks you through each of the chapters.
 
 ## Prerequisites
 This course assumes that readers have basic knowledge about machine learning and neural networks.
