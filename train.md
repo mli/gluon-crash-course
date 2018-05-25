@@ -134,10 +134,14 @@ def acc(output, label):
 Now we can implement the complete training loop.
 
 ```{.python .input  n=12}
+from mxnet import cpu
+
 for epoch in range(10):
     train_loss, train_acc, valid_acc = 0., 0., 0.
     tic = time()
     for data, label in train_data:
+        data = data.as_in_context(cpu())
+        label = label.as_in_context(cpu())
         # forward + backward
         with autograd.record():
             output = net(data)
@@ -151,6 +155,8 @@ for epoch in range(10):
 
     # calculate validation accuracy
     for data, label in valid_data:
+        data = data.as_in_context(cpu())
+        label = label.as_in_context(cpu())
         valid_acc += acc(net(data), label)
 
     print("Epoch %d: Loss: %.3f, Train acc %.3f, Test acc %.3f, \

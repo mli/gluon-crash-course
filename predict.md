@@ -34,7 +34,8 @@ with net.name_scope():
 In the last section, we saved all parameters into a file, now let's load it back.
 
 ```{.python .input  n=3}
-net.load_params('net.params')
+from mxnet import cpu
+net.load_params('net.params', ctx=cpu())
 ```
 
 ## Predict
