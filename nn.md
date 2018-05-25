@@ -76,7 +76,7 @@ The usage of `nn.Sequential` is similar to `nn.Dense`. In fact, both of them are
 
 ```{.python .input}
 net.initialize()
-# Input shape is (RGB_channels, batch_size, height, width)
+# Input shape is (batch_size, color_channels, height, width)
 x = nd.random.uniform(shape=(4,1,28,28))
 y = net(x)
 y.shape
