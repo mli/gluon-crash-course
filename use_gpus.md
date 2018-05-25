@@ -142,5 +142,5 @@ for epoch in range(10):
         train_loss += sum([l.sum().asscalar() for l in losses])
 
     print("Epoch %d: Loss: %.3f, Time %.1f sec" % (
-        epoch, train_loss/len(train_data), time()-tic))
+        epoch, train_loss/len(train_data)/batch_size, time()-tic))
 ```
