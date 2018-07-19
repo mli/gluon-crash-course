@@ -7,7 +7,7 @@ set -e
 
 # prepare the env
 conda env update -f build/build.yml
-source activate gluon_crash_course
+conda activate gluon_crash_course
 
 pip list
 
