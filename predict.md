@@ -31,7 +31,7 @@ net.add(nn.Conv2D(channels=6, kernel_size=5, activation='relu'),
 In the last section, we saved all parameters into a file, now let's load it back.
 
 ```{.python .input  n=3}
-net.load_paramaters('net.params')
+net.load_parameters('net.params')
 ```
 
 ## Predict
