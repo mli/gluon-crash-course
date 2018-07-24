@@ -57,23 +57,20 @@ Similarly, to run a neural network on a GPU, we only need to copy/move the input
 
 ```{.python .input  n=16}
 net = nn.Sequential()
-with net.name_scope():
-    net.add(
-        nn.Conv2D(channels=6, kernel_size=5, activation='relu'),
+net.add(nn.Conv2D(channels=6, kernel_size=5, activation='relu'),
         nn.MaxPool2D(pool_size=2, strides=2),
         nn.Conv2D(channels=16, kernel_size=3, activation='relu'),
         nn.MaxPool2D(pool_size=2, strides=2),
         nn.Flatten(),
         nn.Dense(120, activation="relu"),
         nn.Dense(84, activation="relu"),
-        nn.Dense(10)
-    )
+        nn.Dense(10))
 ```
 
 And then load the saved parameters into GPU 0 directly, or use `net.collect_params().reset_ctx` to change the device.
 
 ```{.python .input  n=20}
-net.load_params('net.params', ctx=gpu(0))
+net.load_parameters('net.params', ctx=gpu(0))
 ```
 
 Now create input data on GPU 0. The forward function will then run on GPU 0.
@@ -117,8 +114,7 @@ net.collect_params().initialize(force_reinit=True, ctx=devices)
 
 # Loss and trainer are the same as before
 softmax_cross_entropy = gluon.loss.SoftmaxCrossEntropyLoss()
-trainer = gluon.Trainer(net.collect_params(),
-                        'sgd', {'learning_rate': 0.1})
+trainer = gluon.Trainer(net.collect_params(), 'sgd', {'learning_rate': 0.1})
 
 for epoch in range(10):
     train_loss = 0.

@@ -18,23 +18,20 @@ To start, we will copy a simple model's definition.
 
 ```{.python .input  n=2}
 net = nn.Sequential()
-with net.name_scope():
-    net.add(
-        nn.Conv2D(channels=6, kernel_size=5, activation='relu'),
+net.add(nn.Conv2D(channels=6, kernel_size=5, activation='relu'),
         nn.MaxPool2D(pool_size=2, strides=2),
         nn.Conv2D(channels=16, kernel_size=3, activation='relu'),
         nn.MaxPool2D(pool_size=2, strides=2),
         nn.Flatten(),
         nn.Dense(120, activation="relu"),
         nn.Dense(84, activation="relu"),
-        nn.Dense(10)
-    )
+        nn.Dense(10))
 ```
 
 In the last section, we saved all parameters into a file, now let's load it back.
 
 ```{.python .input  n=3}
-net.load_params('net.params')
+net.load_paramaters('net.params')
 ```
 
 ## Predict

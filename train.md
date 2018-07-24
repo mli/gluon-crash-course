@@ -90,17 +90,14 @@ We reimplement the same LeNet introduced before. One difference here is that we 
 
 ```{.python .input  n=8}
 net = nn.Sequential()
-with net.name_scope():
-    net.add(
-        nn.Conv2D(channels=6, kernel_size=5, activation='relu'),
+net.add(nn.Conv2D(channels=6, kernel_size=5, activation='relu'),
         nn.MaxPool2D(pool_size=2, strides=2),
         nn.Conv2D(channels=16, kernel_size=3, activation='relu'),
         nn.MaxPool2D(pool_size=2, strides=2),
         nn.Flatten(),
         nn.Dense(120, activation="relu"),
         nn.Dense(84, activation="relu"),
-        nn.Dense(10)
-    )
+        nn.Dense(10))
 net.initialize(init=init.Xavier())
 ```
 
@@ -113,8 +110,7 @@ softmax_cross_entropy = gluon.loss.SoftmaxCrossEntropyLoss()
 The optimization method we pick is the standard stochastic gradient descent with constant learning rate of 0.1.
 
 ```{.python .input  n=10}
-trainer = gluon.Trainer(net.collect_params(),
-                        'sgd', {'learning_rate': 0.1})
+trainer = gluon.Trainer(net.collect_params(), 'sgd', {'learning_rate': 0.1})
 ```
 
 The `trainer` is created with all parameters (both weights and gradients) in `net`. Later on, we only need to call the `step` method to update its weights.
@@ -165,5 +161,5 @@ Time %.1f sec" % (
 Finally, we save the trained parameters onto disk, so that we can use them later.
 
 ```{.python .input  n=13}
-net.save_params('net.params')
+net.save_parameters('net.params')
 ```
