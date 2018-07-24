@@ -67,7 +67,7 @@ train_data = gluon.data.DataLoader(
     mnist_train, batch_size=batch_size, shuffle=True, num_workers=4)
 ```
 
-The returned `train_data` is an iterator that yields batches of images and labels pairs.
+The returned `train_data` is an iterable object that yields batches of images and labels pairs.
 
 ```{.python .input  n=6}
 for data, label in train_data:
