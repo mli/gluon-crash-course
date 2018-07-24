@@ -5,7 +5,11 @@ Gluon is an imperative API for MXNet that’s flexible and easy-to-use, and this
 1. Understand how to use the major components of Gluon
 2. Define and train a basic neural network to classify images
 
-We also provide a supplementary [YouTube video playlist](https://www.youtube.com/playlist?list=PLkEvNnRk8uVmVKRDgznk3o3LxmjFRaW7s) that walks you through each of the chapters.
+We also provide a supplementary
+[YouTube video playlist](https://www.youtube.com/playlist?list=PLkEvNnRk8uVmVKRDgznk3o3LxmjFRaW7s)
+that walks you through each of the chapters. Note that these videos are based on
+[version 0.1](https://github.com/mli/gluon-crash-course/releases/tag/v0.1). A newer
+version may be slightly different.
 
 ## Prerequisites
 
