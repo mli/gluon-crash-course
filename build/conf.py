@@ -247,7 +247,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'gluon_crash_course.tex', 'A 60 minutes Gluon crash course',
-     author, 'manual'),
+     author, 'howto'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

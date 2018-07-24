@@ -2,13 +2,11 @@
 
 [![Build Status](http://ci.mxnet.io/job/gluon-crash-course/badge/icon)](http://ci.mxnet.io/job/gluon-crash-course/)
 
-This is a staging repo, and will be merged to MXNet once it is ready.
-
 Every .md file in this repo may be run directly in Jupyter notebook when you use the `notedown` plugin. Keeping the format in markdown instead of .ipynb makes it easier to collaborate and review on GitHub.
 
 ## Prerequisites
 
-You should already have MXNet 1.1.0 or greater installed in a Python virtual environment. Start this environment and continue with Step 1.
+You should already have MXNet **1.2.1** or greater installed in a Python virtual environment. Start this environment and continue with Step 1.
 
 ### Step 1: Install Jupyter notebook with notedown.
 

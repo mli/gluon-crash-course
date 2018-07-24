@@ -7,10 +7,10 @@ build/%: %
 	@mkdir -p $(@D)
 	@cp -r $< $@
 
-MARKDOWN = index.md mxnet_packages.md use_aws.md
+MARKDOWN = index.rst mxnet_packages.md use_aws.md introduction.md
 NOTEBOOK = ndarray.md nn.md autograd.md train.md predict.md use_gpus.md
 
-OBJ = $(patsubst %.md, build/%.md, $(MARKDOWN)) \
+OBJ = $(patsubst %, build/%, $(MARKDOWN)) \
 	$(patsubst %.md, build/%.ipynb, $(NOTEBOOK))
 
 ORIGN_DEPS = $(wildcard img/*) README.md
