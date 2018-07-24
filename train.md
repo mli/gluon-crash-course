@@ -48,7 +48,7 @@ for f,x,yi in zip(figs, X,y):
 plt.show()
 ```
 
-In order to feed data into a Gluon model, we need to convert the images to the `(channel, height, weight)` format with a floating point data type. It can be done by `transforms.ToTensor`. In addition, we normalize all pixel values with `transforms.Normalize` with the real mean 0.13 and variance 0.31. We chain these two transforms together and apply it to the first element of the data pair, namely the images.
+In order to feed data into a Gluon model, we need to convert the images to the `(channel, height, weight)` format with a floating point data type. It can be done by `transforms.ToTensor`. In addition, we normalize all pixel values with `transforms.Normalize` with the real mean 0.13 and standard deviation 0.31. We chain these two transforms together and apply it to the first element of the data pair, namely the images.
 
 ```{.python .input  n=4}
 transformer = transforms.Compose([
