@@ -328,3 +328,6 @@ def setup(app):
     }, True)
     app.add_javascript('google_analytics.js')
     app.add_stylesheet('gluon.css')
+
+# let the source file format to be xxx.ipynb instead of xxx.ipynb.txt
+html_sourcelink_suffix = ''
