@@ -7,7 +7,7 @@ build/%: %
 	@mkdir -p $(@D)
 	@cp -r $< $@
 
-MARKDOWN = index.rst mxnet_packages.md use_aws.md introduction.md
+MARKDOWN = index.rst mxnet_packages.md use_aws.md preface.md
 NOTEBOOK = ndarray.md nn.md autograd.md train.md predict.md use_gpus.md
 
 OBJ = $(patsubst %, build/%, $(MARKDOWN)) \
