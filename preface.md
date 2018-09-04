@@ -7,7 +7,7 @@ Some of the material might stray a little too far into advanced mathematics, but
 
 ## Setup
 
-This course requres Jupyter notebooks and MXNet v1.2.1 or a newer
+This course requires Jupyter notebooks and MXNet v1.2.1 or a newer
 version. Please refer to "Install a different MXNet package" section or how to install
 various MXNet versions. For instructions on running the Jupyter notebooks
 included with this course, please refer to the
