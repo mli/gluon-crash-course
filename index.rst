@@ -1,6 +1,8 @@
 A 60-minute Gluon Crash Course
 ==============================
 
+**Update:**  This crash course is now merged into the new MXNet document site. You can find it at https://beta.mxnet.io/guide/crash-course/index.html
+
 Gluon is an imperative API for MXNet that’s flexible and easy-to-use, and this
 course aims to give you a quick overview of the core Gluon concepts so you'll be
 ready to use it in your next projects. Once you've completed the course, you
