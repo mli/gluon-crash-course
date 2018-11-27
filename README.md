@@ -1,6 +1,6 @@
 # A 60-min crash course on Gluon
 
-**Note**:  This crash course is not a part of the new MXNet document site, please check it at http://beta.mxnet.io/guide/crash-course/index.html
+**Update**:  This crash course is now a part of the new MXNet document site, please check it at http://beta.mxnet.io/guide/crash-course/index.html
 
 [![Build Status](http://ci.mxnet.io/job/gluon-crash-course/badge/icon)](http://ci.mxnet.io/job/gluon-crash-course/)
 
