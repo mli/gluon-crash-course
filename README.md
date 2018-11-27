@@ -1,5 +1,7 @@
 # A 60-min crash course on Gluon
 
+**Note**:  This crash course is not a part of the new MXNet document site, please check it at http://beta.mxnet.io/guide/crash-course/index.html
+
 [![Build Status](http://ci.mxnet.io/job/gluon-crash-course/badge/icon)](http://ci.mxnet.io/job/gluon-crash-course/)
 
 Every .md file in this repo may be run directly in Jupyter notebook when you use the `notedown` plugin. Keeping the format in markdown instead of .ipynb makes it easier to collaborate and review on GitHub.
