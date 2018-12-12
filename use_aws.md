@@ -1,8 +1,9 @@
 # Run on AWS 
 This tutorial will guide you through Amazon SageMaker: a service that allows you to be up and running with MXNet in 5 minutes and to do Machine Learning at large scale in the quickest and easiest way possible.
-Deep Learning projects usually consist of a set of problem tasks: for instance you may have to create training datasets, train and evaulate your model, tune its hyperparameters and finally deploy the model to a production ready cluster. This workflow can be quite cumbersome and time consuming. For this reason AWS provides Amazon SageMaker a fully managed machine learning service that accelerates the overall Deep Learning workflow.
 
-User who only need compute instances rather than a fully managed SageMaker should follow chapter [Run on an EC2 instance](https://github.com/NRauschmayr/gluon-crash-course/blob/run-on-aws-updated/use_ec2.md#run-on-an-ec2-instance). EC2 provides specialized Deep Learning images so developers can start training their models right away without the hassle of installing driver and software frameworks.
+Deep Learning projects usually consist of a set of problem tasks: for instance you may have to create training datasets, train and evaluate your model, tune its hyperparameters and finally deploy the model to a production ready cluster. This workflow can be quite cumbersome and time consuming. For this reason AWS provides Amazon SageMaker a fully managed machine learning service that accelerates the overall Deep Learning workflow.
+
+User who only need compute instances rather than a fully managed Machine Learning service should follow chapter [Run on an EC2 instance](https://github.com/NRauschmayr/gluon-crash-course/blob/run-on-aws-updated/use_ec2.md#run-on-an-ec2-instance). EC2 provides specialized Deep Learning images so developers can start training their models right away without the hassle of installing driver and software frameworks.
 
 
 ## Run on Amazon SageMaker
@@ -31,7 +32,7 @@ estimator = MXNetEstimator(entry_point='train.py',
                                             'epochs': 30})
 estimator.fit(inputs)
 ```
-If you require a more powerful platform for training, then you only need to change the ```train_instance_type```. Once you call fit, SageMaker will automatically create the required EC2 instances, train your model within a Docker container and then immediately shutdown these instances. ```Fit()``` requires an entry point (here ```train.py```) that describes the model and training loop. This script needs to provides certain functions, that will be automatically called by SageMaker once you train and deploy the model. More information about the entry point script can be found [here](https://docs.aws.amazon.com/sagemaker/latest/dg/mxnet-training-inference-code-template.html).
+If you require a more powerful platform for training, then you only need to change the ```train_instance_type```. Once you call ```fit```, SageMaker will automatically create the required EC2 instances, train your model within a Docker container and then immediately shutdown these instances. ```Fit()``` requires an entry point (here ```train.py```) that describes the model and training loop. This script needs to provide certain functions, that will be automatically executed by SageMaker. More information about the entry point script can be found [here](https://docs.aws.amazon.com/sagemaker/latest/dg/mxnet-training-inference-code-template.html).
 When the model is ready for deployment you can use [SageMaker's hosting services](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-hosting.html) that create an HTTPS endpoint where model inference is provided.
 ```
 predictor = estimator.deploy(initial_instance_count=1,
